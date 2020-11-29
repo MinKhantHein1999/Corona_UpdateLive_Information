@@ -1,0 +1,26 @@
+[
+    [
+        "ChipType",
+        "19C020RHS"
+    ],
+    [
+        "cleanFlag",
+        true
+    ],
+    [
+        "ProjectType",
+        "HRCC"
+    ],
+    [
+        "ToolChain",
+        ""
+    ],
+    [
+        "TargetPath",
+        "Debug"
+    ],
+    [
+        "Name",
+        "corona-update-information"
+    ]
+]

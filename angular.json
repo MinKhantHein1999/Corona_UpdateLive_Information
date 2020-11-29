@@ -30,7 +30,10 @@
             "styles": [
               "src/styles.scss"
             ],
-            "scripts": []
+            "scripts": [
+              "node_modules/jquery/dist/jquery.min.js",
+              "node_modules/bootstrap/dist/js/bootstrap.min.js"
+            ]
           },
           "configurations": {
             "production": {
@@ -123,6 +126,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "corona-update-information"
+    }
+  },
+  "defaultProject": "corona-update-information",
+  "cli": {
+    "analytics": "cd838af2-a7a3-49a0-8eb2-948b09761024"
+  }
 }

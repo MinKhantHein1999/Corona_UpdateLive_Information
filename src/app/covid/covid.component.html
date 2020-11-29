@@ -1,0 +1,98 @@
+<div class="container-fluid py-5">
+  <div class="card">
+    <div class="card-header bg-primary">
+      <h3 class="text-white font-weight-bold text-center"><i class="text-danger"><u>Covid-19 </u></i>Update Live Information</h3>
+    </div>
+    <div class="card-body">
+      <ngb-accordion>
+        <ngb-panel>
+          <ng-template ngbPanelTitle>
+            <span>&#9733; <b>Infacted Information & Search</b> &#9733;</span>
+          </ng-template>
+          <ng-template ngbPanelContent>
+            <form>
+              <div class="form-group form-inline ml-3">
+                <span class="font-weight-bold">Search:</span> <input class="form-control ml-2" type="text" [formControl]="filter" />
+              </div>
+            </form>
+
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">Country Info</th>
+                  <th scope="col">Cases</th>
+                  <th scope="col">Today Cases</th>
+                  <th scope="col">Deaths</th>
+                  <th scope="col">Today Deaths</th>
+                  <th scope="col">Recovered</th>
+                  <th scope="col">Active</th>
+                  <th scope="col">Critical</th>
+                  <th scope="col">Case Per One Million</th>
+                  <th scope="col">Death Per One Million</th>
+                  <th scope="col">Tests</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let covid of covidobjs$ | async; index as i">
+                  <th scope="row">{{ i + 1 }}</th>
+                  <td>
+                    <img [src]="covid.countryInfo.flag" class="mr-2" style="width: 20px">
+                    <ngb-highlight [result]="covid.country" [term]="filter.value"></ngb-highlight>
+                  </td>
+                  <td>
+                    <ngb-highlight [result]="covid.cases | number" [term]="filter.value"></ngb-highlight>
+                  </td>
+                  <td>
+                    <ngb-highlight [result]="covid.todayCases | number" [term]="filter.value"></ngb-highlight>
+                  </td>
+                  <td>
+                    <ngb-highlight [result]="covid.deaths | number" [term]="filter.value"></ngb-highlight>
+                  </td>
+                  <td>
+                    <ngb-highlight [result]="covid.todayDeaths | number" [term]="filter.value"></ngb-highlight>
+                  </td>
+                  <td>
+                    <ngb-highlight [result]="covid.recovered | number" [term]="filter.value"></ngb-highlight>
+                  </td>
+                  <td>
+                    <ngb-highlight [result]="covid.active | number" [term]="filter.value"></ngb-highlight>
+                  </td>
+                  <td>
+                    <ngb-highlight [result]="covid.critical | number" [term]="filter.value"></ngb-highlight>
+                  </td>
+                  <td>
+                    <ngb-highlight [result]="covid.casesPerOneMillion | number" [term]="filter.value"></ngb-highlight>
+                  </td>
+                  <td>
+                    <ngb-highlight [result]="covid.deathsPerOneMillion | number" [term]="filter.value"></ngb-highlight>
+                  </td>
+                  <td>
+                    <ngb-highlight [result]="covid.tests | number" [term]="filter.value"></ngb-highlight>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </ng-template>
+        </ngb-panel>
+        <ngb-panel>
+          <ng-template ngbPanelTitle>
+            <span>&#9733; <b>Bar Chart</b> &#9733;</span>
+          </ng-template>
+          <ng-template ngbPanelContent>
+            <div style="max-width: 800; max-height: 800; overflow: auto;">
+              <ngx-charts-bar-horizontal [view]="view" [scheme]="colorScheme" [results]="covidBarChart" [gradient]="gradient" [barPadding]="barPadding"
+                [xAxis]="showXAxis" [yAxis]="showYAxis" [legend]="showLegend" [showXAxisLabel]="showXAxisLabel"
+                [showYAxisLabel]="showYAxisLabel" [xAxisLabel]="xAxisLabel" [yAxisLabel]="yAxisLabel">
+              </ngx-charts-bar-horizontal>
+            </div>
+          </ng-template>
+        </ngb-panel>
+      </ngb-accordion>
+    </div>
+    <div class="card-footer">
+      <footer class="blockquote-footer">developed by <cite>MKH@Kelvin</cite></footer>
+    </div>
+  </div>
+
+</div>

@@ -1,0 +1,14 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "esdbg",
+            "request": "launch",
+            "name": "esdbg",
+            "preLaunchTask": {
+                "type": "essemibuildscript",
+                "buildname": "Build All"
+            }
+        }
+    ]
+}
